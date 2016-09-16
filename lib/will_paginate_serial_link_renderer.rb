@@ -1,5 +1,7 @@
 require "will_paginate_serial_link_renderer/version"
 require "will_paginate"
+require "will_paginate/view_helpers"
+require "will_paginate/view_helpers/link_renderer"
 
 module WillPaginateSerialLinkRenderer
   # Your code goes here...
@@ -9,7 +11,7 @@ module WillPaginateSerialLinkRenderer
     # * +options+ are forwarded from +will_paginate+ view helper
     # * +template+ is the reference to the template being rendered
     def prepare(collection, options, template)
-      super(collection, options)
+      super(collection, options, template)
       @template = template
       @container_attributes = @base_url_params = nil
     end  
