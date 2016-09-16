@@ -1,8 +1,9 @@
 require "will_paginate_serial_link_renderer/version"
+require "will_paginate"
 
 module WillPaginateSerialLinkRenderer
   # Your code goes here...
-  class LinkRenderer < WillPaginate::ViewHelpers::LinkRendererBase
+  class LinkRenderer < ::WillPaginate::ViewHelpers::LinkRenderer
     # * +collection+ is a WillPaginate::Collection instance or any other object
     #   that conforms to that API
     # * +options+ are forwarded from +will_paginate+ view helper
