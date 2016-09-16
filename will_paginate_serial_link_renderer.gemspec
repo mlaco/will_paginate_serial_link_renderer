@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
     without a page reload.
     This gem reduces each link to its minimal form: a page number.
   }
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mlaco/will_paginate_serial_link_renderer"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
