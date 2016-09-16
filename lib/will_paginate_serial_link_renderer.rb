@@ -19,7 +19,7 @@ module WillPaginateSerialLinkRenderer
     def to_html
       [
         previous_page_tag,
-        tag(:div, nil, {:"data-pagination" => pagination[1..-2]}),
+        tag(:div, nil, {:"data-pagination" => represent_pages_as_string(pagination[1..-2])}),
         next_page_tag
       ].join('')
     end
@@ -36,18 +36,22 @@ module WillPaginateSerialLinkRenderer
     
     def previous_page_tag
       if previous_page
-        tag(:div, "Previous", {:"data-pagination" => previous_page})
+        tag(:div, "Previous", {:"data-pagination" => "prev:#{previous_page}", :class => "pagination-tag"})
       else
-        previous_or_next_page(nil, @options[:previous_label], 'previous_page')
+        tag(:div, "Previous", {:"data-pagination" => "prev:nil", :class => "pagination-tag"})
       end
     end
     
     def next_page_tag
       if next_page
-        tag(:div, "Next", {:"data-pagination" => next_page})
+        tag(:div, "Next", {:"data-pagination" => "next:#{next_page}", :class => "pagination-tag"})
       else
-        previous_or_next_page(nil, @options[:next_label], 'next_page')
+        tag(:div, "Next", {:"data-pagination" => "next:nil", :class => "pagination-tag"})
       end
+    end
+    
+    def represent_pages_as_string(items)
+      items.map(&:to_s).join('+')
     end
   end
 end
