@@ -17,7 +17,7 @@ module WillPaginateSerialLinkRenderer
     end  
     
     def to_html
-      tag(:div, nil, {:"data-pagination" => pagination_data}),
+      tag(:div, nil, {:"data-pagination" => pagination_data})
     end
     
     protected
